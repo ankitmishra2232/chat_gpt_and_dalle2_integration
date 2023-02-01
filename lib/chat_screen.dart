@@ -47,7 +47,7 @@ class _ChatScreenState extends State<ChatScreen> {
     );
     
     _subscription = chatGPT!
-        .builder("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",orgId: "")
+        .builder("apikey",baseOption: HttpSetup(connectTimeout: 500000,receiveTimeout: 500000,sendTimeout: 500000))
         .onCompleteStream(request: request)
         .listen((response) {
           Vx.log(response!.choices[0].text);
